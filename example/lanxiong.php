@@ -5,6 +5,11 @@
  * Date: 16/7/5
  * Time: 15:45
  */
+
+/**
+ * @param $array
+ * @return array
+ */
 function arrayCastRecursive($array)
 {
     if (is_array($array)) {
@@ -23,15 +28,15 @@ function arrayCastRecursive($array)
     return $array;
 }
 
-require __DIR__.'/bootstrap.php';
+require __DIR__ . '/bootstrap.php';
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 $config = [
     'driver'    => 'mysql',
     'host'      => 'localhost',
-    'database'  => 'Mercury',
+    'database'  => 'test',
     'username'  => 'root',
-    'password'  => '',
+    'password'  => '123456789',
     'charset'   => 'utf8',
     'collation' => 'utf8_general_ci',
     'prefix'    => ''
@@ -62,6 +67,5 @@ for($i = 2315;$i < 2415;$i++) {
     $arr['updated_at'] = time();
 
 //    var_dump($arr);
-    Capsule::table('d_posts')->insert($arr);
+    Capsule::table('posts')->insert($arr);
 }
-
